@@ -1,0 +1,15 @@
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\bin\Debug\net6.0\DateDemo.exe
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\bin\Debug\net6.0\DateDemo.deps.json
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\bin\Debug\net6.0\DateDemo.runtimeconfig.json
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\bin\Debug\net6.0\DateDemo.dll
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\bin\Debug\net6.0\DateDemo.pdb
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\obj\Debug\net6.0\DateDemo.csproj.AssemblyReference.cache
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\obj\Debug\net6.0\DateDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\obj\Debug\net6.0\DateDemo.AssemblyInfoInputs.cache
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\obj\Debug\net6.0\DateDemo.AssemblyInfo.cs
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\obj\Debug\net6.0\DateDemo.csproj.CoreCompileInputs.cache
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\obj\Debug\net6.0\DateDemo.dll
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\obj\Debug\net6.0\refint\DateDemo.dll
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\obj\Debug\net6.0\DateDemo.pdb
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\obj\Debug\net6.0\DateDemo.genruntimeconfig.cache
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\DateDemo\DateDemo\obj\Debug\net6.0\ref\DateDemo.dll

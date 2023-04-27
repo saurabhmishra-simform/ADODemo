@@ -1,0 +1,11 @@
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\bin\Debug\CrudOperation.exe.config
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\bin\Debug\CrudOperation.exe
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\bin\Debug\CrudOperation.pdb
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\obj\Debug\CrudOperation.csproj.AssemblyReference.cache
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\obj\Debug\CrudOperation.csproj.SuggestedBindingRedirects.cache
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\obj\Debug\CrudOperation.PLL.Event.resources
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\obj\Debug\CrudOperation.Properties.Resources.resources
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\obj\Debug\CrudOperation.csproj.GenerateResource.cache
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\obj\Debug\CrudOperation.csproj.CoreCompileInputs.cache
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\obj\Debug\CrudOperation.exe
+C:\Users\saurabh\Desktop\Saurabh\ADO.Net\CrudOperation\CrudOperation\obj\Debug\CrudOperation.pdb

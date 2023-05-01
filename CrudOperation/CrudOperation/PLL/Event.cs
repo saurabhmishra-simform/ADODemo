@@ -45,45 +45,45 @@ namespace CrudOperation.PLL
         {
             GetEventData();
             result = eventBLL.InsertData(eventId,eventName,eventPrice,eventDateTime);
-            if (result == 1)
+            if (result > 0)
             {
                 MessageBox.Show("Event record inserted sucessfully!");
+                UpdateDataGridView();
             }
             else
             {
                 MessageBox.Show("Event record not inserted!");
             }
-            UpdateDataGridView();
             DefaultFormData();
         }
         private void Delete_Click(object sender, EventArgs e)
         {
             GetEventData();
             result = eventBLL.DeleteData(eventId);
-            if (result == 1)
+            if (result > 0)
             {
                 MessageBox.Show("Event record deleted sucessfully!");
+                UpdateDataGridView();
             }
             else
             {
-                MessageBox.Show("Event record not deleted!");
+                MessageBox.Show("Record not deleted because event id not found!");
             }
-            UpdateDataGridView();
             DefaultFormData();
         }
         private void Update_Click(object sender, EventArgs e)
         {
             GetEventData();
             result = eventBLL.UpdateData(eventId, eventName);
-            if (result == 1)
+            if (result > 0)
             {
                 MessageBox.Show("Event record updated sucessfully!");
+                UpdateDataGridView();
             }
             else
             {
-                MessageBox.Show("Event record not updated!");
+                MessageBox.Show("Record not updated because event id not found!");
             }
-            UpdateDataGridView();
             DefaultFormData();
         }
         private void Display_Click(object sender, EventArgs e)

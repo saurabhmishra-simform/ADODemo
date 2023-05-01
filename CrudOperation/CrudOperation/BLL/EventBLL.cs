@@ -5,17 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using CrudOperation.DAL;
+using CrudOperation.DAL.Querys;
 
 namespace CrudOperation.BLL
 {
     public class EventBLL
     {
+        EventManagement eventManagement = new EventManagement();
         public DataTable GetEventDetails()
         {
             try
             {
-                IDisplay displayDAL = new Display();
-                return displayDAL.ReadEventDetails();
+                return eventManagement.ReadEventDetails();
             }
             catch
             {
@@ -26,8 +27,7 @@ namespace CrudOperation.BLL
         {
             try
             {
-                IInsert insertDAL = new Insert();
-                return insertDAL.InsertEventDetail(EventID,EventName,EventPrice,EventDate);
+                return eventManagement.InsertEventDetail(EventID,EventName,EventPrice,EventDate);
             }
             catch
             {
@@ -38,8 +38,7 @@ namespace CrudOperation.BLL
         {
             try
             {
-                IUpdate updateDAL = new Update();
-                return updateDAL.UpdateEventDetail(EventID, EventName);
+                return eventManagement.UpdateEventDetail(EventID, EventName);
             }
             catch
             {
@@ -50,8 +49,7 @@ namespace CrudOperation.BLL
         {
             try
             {
-                IDelete deleteDAL = new Delete();
-                return deleteDAL.DeleteEventDetail(EventID);
+                return eventManagement.DeleteEventDetail(EventID);
             }
             catch
             {

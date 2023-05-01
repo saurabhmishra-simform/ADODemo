@@ -160,10 +160,10 @@
             // 
             // EventId
             // 
-            this.EventId.Location = new System.Drawing.Point(408, 38);
+            this.EventId.Location = new System.Drawing.Point(408, 35);
             this.EventId.Name = "EventId";
             this.EventId.Size = new System.Drawing.Size(100, 20);
-            this.EventId.TabIndex = 13;
+            this.EventId.TabIndex = 0;
             // 
             // EventDate
             // 

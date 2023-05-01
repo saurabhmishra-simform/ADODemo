@@ -14,8 +14,44 @@ namespace CrudOperation.BLL
         {
             try
             {
-                EventDAL eventDAL = new EventDAL();
-                return eventDAL.ReadEventDetails();
+                IDisplay displayDAL = new Display();
+                return displayDAL.ReadEventDetails();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public int InsertData(int EventID,string EventName,decimal EventPrice,string EventDate) 
+        {
+            try
+            {
+                IInsert insertDAL = new Insert();
+                return insertDAL.InsertEventDetail(EventID,EventName,EventPrice,EventDate);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public int UpdateData(int EventID,string EventName)
+        {
+            try
+            {
+                IUpdate updateDAL = new Update();
+                return updateDAL.UpdateEventDetail(EventID, EventName);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public int DeleteData(int EventID)
+        {
+            try
+            {
+                IDelete deleteDAL = new Delete();
+                return deleteDAL.DeleteEventDetail(EventID);
             }
             catch
             {

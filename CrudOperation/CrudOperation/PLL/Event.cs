@@ -10,17 +10,86 @@ using System.Windows.Forms;
 using CrudOperation.BLL;
 namespace CrudOperation.PLL
 {
-    public partial class Event : Form
+    public partial class EventDate : Form
     {
-        public Event()
+        readonly EventBLL eventBLL = new EventBLL();
+        public int result;
+        public int eventId;
+        public string eventName;
+        public decimal eventPrice;
+        public string eventDateTime;
+        private void UpdateDataGridView()
+        {
+            dataGridView1.DataSource = eventBLL.GetEventDetails();
+        }
+        private void DefaultFormData()
+        {
+            EventId.Text = "0";
+            EventName.Text = "";
+            EventPrice.Text = "0";
+        }
+        public EventDate()
         {
             InitializeComponent();
+            DefaultFormData();
+            UpdateDataGridView();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void GetEventData()
         {
-            EventBLL eventBLL = new EventBLL();
-            dataGridView1.DataSource = eventBLL.GetEventDetails();
+            eventId = Convert.ToInt32(EventId.Text);
+            eventName = EventName.Text;
+            eventPrice = Convert.ToDecimal(EventPrice.Text);
+            eventDateTime = EventDateTime.Text;
+        }
+        private void Insert_Click(object sender, EventArgs e)
+        {
+            GetEventData();
+            result = eventBLL.InsertData(eventId,eventName,eventPrice,eventDateTime);
+            if (result == 1)
+            {
+                MessageBox.Show("Event record inserted sucessfully!");
+            }
+            else
+            {
+                MessageBox.Show("Event record not inserted!");
+            }
+            UpdateDataGridView();
+            DefaultFormData();
+        }
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            GetEventData();
+            result = eventBLL.DeleteData(eventId);
+            if (result == 1)
+            {
+                MessageBox.Show("Event record deleted sucessfully!");
+            }
+            else
+            {
+                MessageBox.Show("Event record not deleted!");
+            }
+            UpdateDataGridView();
+            DefaultFormData();
+        }
+        private void Update_Click(object sender, EventArgs e)
+        {
+            GetEventData();
+            result = eventBLL.UpdateData(eventId, eventName);
+            if (result == 1)
+            {
+                MessageBox.Show("Event record updated sucessfully!");
+            }
+            else
+            {
+                MessageBox.Show("Event record not updated!");
+            }
+            UpdateDataGridView();
+            DefaultFormData();
+        }
+        private void Display_Click(object sender, EventArgs e)
+        {
+            UpdateDataGridView();
+            DefaultFormData();
         }
     }
 }

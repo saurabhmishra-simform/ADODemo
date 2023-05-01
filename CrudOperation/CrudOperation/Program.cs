@@ -16,7 +16,7 @@ namespace CrudOperation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PLL.Event());
+            Application.Run(new PLL.EventDate());
         }
     }
 }

@@ -28,11 +28,27 @@ namespace CrudOperation.PLL
             EventName.Text = "";
             EventPrice.Text = "0";
         }
+        public void ButtonCheck()
+        {
+            if (EventId.Text == "0")
+            {
+                EventId.Enabled = false;
+                Update.Enabled = false;
+                Delete.Enabled = false;
+            }
+            else
+            {
+                Update.Enabled = true;
+                Delete.Enabled = true;
+                Insert.Enabled = false;
+            }
+        }
         public EventDate()
         {
             InitializeComponent();
             DefaultFormData();
             UpdateDataGridView();
+            ButtonCheck();
         }
         public void GetEventData()
         {
@@ -44,7 +60,7 @@ namespace CrudOperation.PLL
         private void Insert_Click(object sender, EventArgs e)
         {
             GetEventData();
-            result = eventBLL.InsertData(eventId,eventName,eventPrice,eventDateTime);
+            result = eventBLL.InsertData(eventName,eventPrice,eventDateTime);
             if (result > 0)
             {
                 MessageBox.Show("Event record inserted sucessfully!");
@@ -74,7 +90,7 @@ namespace CrudOperation.PLL
         private void Update_Click(object sender, EventArgs e)
         {
             GetEventData();
-            result = eventBLL.UpdateData(eventId, eventName);
+            result = eventBLL.UpdateData(eventId, eventName,eventPrice,eventDateTime);
             if (result > 0)
             {
                 MessageBox.Show("Event record updated sucessfully!");
@@ -90,6 +106,24 @@ namespace CrudOperation.PLL
         {
             UpdateDataGridView();
             DefaultFormData();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EventId.Text = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            EventName.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            EventPrice.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            EventDateTime.Text = this.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            ButtonCheck();
+        }
+
+        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            EventId.Text = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            EventName.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            EventPrice.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            EventDateTime.Text = this.dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            ButtonCheck();
         }
     }
 }

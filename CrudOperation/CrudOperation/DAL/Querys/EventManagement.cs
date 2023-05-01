@@ -11,11 +11,10 @@ namespace CrudOperation.DAL.Querys
     public class EventManagement
     {
         DateConvertDelegate dateConvert = new DateConvertDelegate(DateConvert.DateConvertSQLFormate);
-        public int InsertEventDetail(int EventID, string EventName, decimal EventPrice, string EventDate)
+        public int InsertEventDetail(string EventName, decimal EventPrice, string EventDate)
         {
             SqlCommand cmd = new SqlCommand("uspInsertEventDetails", Connection.connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@eventId", EventID);
             cmd.Parameters.AddWithValue("@eventName", EventName);
             cmd.Parameters.AddWithValue("@eventPrice", EventPrice);
             cmd.Parameters.AddWithValue("@eventDate",dateConvert(EventDate));
@@ -30,12 +29,14 @@ namespace CrudOperation.DAL.Querys
                 throw;
             }
         }
-        public int UpdateEventDetail(int EventID, string EventName)
+        public int UpdateEventDetail(int EventID, string EventName, decimal EventPrice, string EventDate)
         {
             SqlCommand cmd = new SqlCommand("uspUpdateEventDetails", Connection.connection);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@eventId", EventID);
             cmd.Parameters.AddWithValue("@eventName", EventName);
+            cmd.Parameters.AddWithValue("@eventPrice", EventPrice);
+            cmd.Parameters.AddWithValue("@eventDate", dateConvert(EventDate));
             try
             {
                 Connection.CheckConnectionState();

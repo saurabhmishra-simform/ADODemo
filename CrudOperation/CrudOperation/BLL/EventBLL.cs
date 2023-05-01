@@ -23,22 +23,22 @@ namespace CrudOperation.BLL
                 throw;
             }
         }
-        public int InsertData(int EventID,string EventName,decimal EventPrice,string EventDate) 
+        public int InsertData(string EventName,decimal EventPrice,string EventDate) 
         {
             try
             {
-                return eventManagement.InsertEventDetail(EventID,EventName,EventPrice,EventDate);
+                return eventManagement.InsertEventDetail(EventName,EventPrice,EventDate);
             }
             catch
             {
                 throw;
             }
         }
-        public int UpdateData(int EventID,string EventName)
+        public int UpdateData(int EventID,string EventName, decimal EventPrice, string EventDate)
         {
             try
             {
-                return eventManagement.UpdateEventDetail(EventID, EventName);
+                return eventManagement.UpdateEventDetail(EventID, EventName, EventPrice, EventDate);
             }
             catch
             {

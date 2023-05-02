@@ -11,13 +11,13 @@ namespace CrudOperation.DAL.Querys
     public class EventManagement
     {
         DateConvertDelegate dateConvert = new DateConvertDelegate(DateConvert.DateConvertSQLFormate);
-        public int InsertEventDetail(string EventName, decimal EventPrice, string EventDate)
+        public int InsertEventDetail(EventDataHandle eventDataHandle)
         {
             SqlCommand cmd = new SqlCommand("uspInsertEventDetails", Connection.connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@eventName", EventName);
-            cmd.Parameters.AddWithValue("@eventPrice", EventPrice);
-            cmd.Parameters.AddWithValue("@eventDate",dateConvert(EventDate));
+            cmd.Parameters.AddWithValue("@eventName", eventDataHandle.eventName);
+            cmd.Parameters.AddWithValue("@eventPrice", eventDataHandle.eventPrice);
+            cmd.Parameters.AddWithValue("@eventDate",dateConvert(eventDataHandle.eventDateTime));
             try
             {
                 Connection.CheckConnectionState();
@@ -29,14 +29,14 @@ namespace CrudOperation.DAL.Querys
                 throw;
             }
         }
-        public int UpdateEventDetail(int EventID, string EventName, decimal EventPrice, string EventDate)
+        public int UpdateEventDetail(EventDataHandle eventDataHandle)
         {
             SqlCommand cmd = new SqlCommand("uspUpdateEventDetails", Connection.connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@eventId", EventID);
-            cmd.Parameters.AddWithValue("@eventName", EventName);
-            cmd.Parameters.AddWithValue("@eventPrice", EventPrice);
-            cmd.Parameters.AddWithValue("@eventDate", dateConvert(EventDate));
+            cmd.Parameters.AddWithValue("@eventId", eventDataHandle.eventId);
+            cmd.Parameters.AddWithValue("@eventName", eventDataHandle.eventName);
+            cmd.Parameters.AddWithValue("@eventPrice", eventDataHandle.eventPrice);
+            cmd.Parameters.AddWithValue("@eventDate", dateConvert(eventDataHandle.eventDateTime));
             try
             {
                 Connection.CheckConnectionState();
@@ -48,11 +48,11 @@ namespace CrudOperation.DAL.Querys
                 throw;
             }
         }
-        public int DeleteEventDetail(int EventID)
+        public int DeleteEventDetail(EventDataHandle eventDataHandle)
         {
             SqlCommand cmd = new SqlCommand("uspDeleteEventDetails", Connection.connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@eventId", EventID);
+            cmd.Parameters.AddWithValue("@eventId", eventDataHandle.eventId);
             try
             {
                 Connection.CheckConnectionState();

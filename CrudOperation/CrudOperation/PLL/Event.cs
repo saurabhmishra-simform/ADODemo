@@ -8,16 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrudOperation.BLL;
+using CrudOperation.DAL.Querys;
+
 namespace CrudOperation.PLL
 {
     public partial class EventDate : Form
     {
+        EventDataHandle eventDataHandle = new EventDataHandle();
         readonly EventBLL eventBLL = new EventBLL();
         public int result;
-        public int eventId;
-        public string eventName;
-        public decimal eventPrice;
-        public string eventDateTime;
         private void UpdateDataGridView()
         {
             dataGridView1.DataSource = eventBLL.GetEventDetails();
@@ -35,6 +34,7 @@ namespace CrudOperation.PLL
                 EventId.Enabled = false;
                 Update.Enabled = false;
                 Delete.Enabled = false;
+                Insert.Enabled = true;
             }
             else
             {
@@ -52,15 +52,22 @@ namespace CrudOperation.PLL
         }
         public void GetEventData()
         {
-            eventId = Convert.ToInt32(EventId.Text);
-            eventName = EventName.Text;
-            eventPrice = Convert.ToDecimal(EventPrice.Text);
-            eventDateTime = EventDateTime.Text;
+            try
+            {
+                eventDataHandle.eventId = Convert.ToInt32(EventId.Text);
+                eventDataHandle.eventName = EventName.Text;
+                eventDataHandle.eventPrice = Convert.ToDecimal(EventPrice.Text);
+                eventDataHandle.eventDateTime = EventDateTime.Text;
+            }
+            catch
+            {
+                MessageBox.Show("Input in correct format");
+            }
         }
         private void Insert_Click(object sender, EventArgs e)
         {
             GetEventData();
-            result = eventBLL.InsertData(eventName,eventPrice,eventDateTime);
+            result = eventBLL.InsertData(eventDataHandle);
             if (result > 0)
             {
                 MessageBox.Show("Event record inserted sucessfully!");
@@ -75,7 +82,7 @@ namespace CrudOperation.PLL
         private void Delete_Click(object sender, EventArgs e)
         {
             GetEventData();
-            result = eventBLL.DeleteData(eventId);
+            result = eventBLL.DeleteData(eventDataHandle);
             if (result > 0)
             {
                 MessageBox.Show("Event record deleted sucessfully!");
@@ -86,11 +93,12 @@ namespace CrudOperation.PLL
                 MessageBox.Show("Record not deleted because event id not found!");
             }
             DefaultFormData();
+            ButtonCheck();
         }
         private void Update_Click(object sender, EventArgs e)
         {
             GetEventData();
-            result = eventBLL.UpdateData(eventId, eventName,eventPrice,eventDateTime);
+            result = eventBLL.UpdateData(eventDataHandle);
             if (result > 0)
             {
                 MessageBox.Show("Event record updated sucessfully!");
@@ -101,23 +109,14 @@ namespace CrudOperation.PLL
                 MessageBox.Show("Record not updated because event id not found!");
             }
             DefaultFormData();
+            ButtonCheck();
         }
         private void Display_Click(object sender, EventArgs e)
         {
             UpdateDataGridView();
             DefaultFormData();
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            EventId.Text = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            EventName.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            EventPrice.Text = this.dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            EventDateTime.Text = this.dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            ButtonCheck();
-        }
-
-        private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             EventId.Text = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
             EventName.Text = this.dataGridView1.CurrentRow.Cells[1].Value.ToString();

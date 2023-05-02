@@ -49,6 +49,7 @@
     <Compile Include="BLL\EventBLL.cs" />
     <Compile Include="DAL\Connection\Connection.cs" />
     <Compile Include="DAL\Delegates\DateConvert.cs" />
+    <Compile Include="DAL\Querys\EventDataHandle.cs" />
     <Compile Include="DAL\Querys\EventManagement.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
